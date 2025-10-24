@@ -6,12 +6,23 @@
     --background-color-2: #f5f5f5;
     --background-image-body: linear-gradient(135deg,#030918, #00f, #030918);
     --background-image-btn: linear-gradient(135deg, #008000, #0f0, #008000);
+
+    /*Text*/
+    /* @link https://utopia.fyi/type/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+    --step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    --step-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+    --step-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+    --step-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+    --step-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
+    --step-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
 }
 
 html {
     box-sizing: border-box;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: var(--step--1);
 }
 
 *,
@@ -170,6 +181,7 @@ canvas {
     white-space: pre;
     overflow: auto;
     padding: 1rem;
+    font-size: var(--step--2);
 }
 
 .extracted-color-information button {
