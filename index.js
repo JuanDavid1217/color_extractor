@@ -141,9 +141,9 @@ const getAllColors = () => {
     }
     
     //ORDER BY THE TOTAL OF EACH COLOR
-    /*uniqueColors.sort((a, b) => {
+    uniqueColors.sort((a, b) => {
         return b["total"]-a["total"]
-    })*/
+    })
     
 
     //ORDER BY LUMINANCE OF EACH COLOR
@@ -153,10 +153,10 @@ const getAllColors = () => {
     })*/
 
     //ORDER BY AVERAGE OF EACH COLOR
-    uniqueColors.sort((a, b) => {
+    /*uniqueColors.sort((a, b) => {
         const avg = ([r, g, b]) => (r + g + b) / 3
         return avg(a["avg"]) - avg(b["avg"]);
-    });
+    });*/
     
     for(const uniqueColor of uniqueColors) {
         const hex = rgbToHex(uniqueColor["avg"][0], uniqueColor["avg"][1], uniqueColor["avg"][2])
