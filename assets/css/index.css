@@ -1,0 +1,187 @@
+:root {
+    --color-1: #fff;
+    --color-2: #00dd00;
+    --border-color-1: #ccc;
+    --background-color-1: #0009;
+    --background-color-2: #f5f5f5;
+    --background-image-body: linear-gradient(135deg,#030918, #00f, #030918);
+    --background-image-btn: linear-gradient(135deg, #008000, #0f0, #008000);
+}
+
+html {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    min-width: 13rem;
+    min-height: 100dvh;
+    background-image: var(--background-image-body);
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-1);
+}
+
+small {
+    margin-bottom: .5rem;
+    display: block;
+    font-weight: 600;
+}
+
+.card {
+    max-width: 70rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 0 1rem .02rem var(--background-color-1);
+}
+
+.preload,
+.results {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border: thin solid var(--border-color-1);
+    border-radius: .5rem;
+}
+
+.image.selected {
+    border:none;
+}
+
+canvas {
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.image-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 0;
+}
+
+.image-selector input {
+    display: none;
+}
+
+.image-selector label,
+.extracted-color-information button {
+    cursor: pointer;
+    color: var(--color-1);
+    font-weight: 600;
+    background-color: var(--color-2);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    transition: transform .3s ease;
+}
+
+.image-selector label:hover,
+.extracted-color-information button:hover {
+    transform: scale(1.05, 1.05);
+}
+
+#colors-container {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: .5rem;
+    overflow-x: auto;
+    border: thin solid var(--border-color-1);
+}
+
+#colors-container::-webkit-scrollbar {
+    display: none;
+}
+
+.color-item {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 20%;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    height: 100%;
+}
+
+.color-box {
+    position: absolute;
+    inset: 0;
+}
+
+.color-filter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    z-index: 1;
+    color: var(--color-1);
+    background-color: var(--background-color-1);
+    transition: opacity .3s ease;
+}
+
+.color-item:hover .color-filter {
+    opacity: 1;
+}
+
+.extracted-color-information {
+    border: thin solid var(--border-color-1);
+    border-radius: .5rem;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--background-color-2);
+}
+
+.extracted-color-information-content {
+    width: 100%;
+    height: 100%;
+    white-space: pre;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.extracted-color-information button {
+    position: absolute;
+    top: -.5rem;
+    right: 1rem;
+    border: none;
+    font-size: x-small;
+}
+
+@media screen and (min-width: 768px){
+    .card {
+        flex-direction: row;
+    }
+}
